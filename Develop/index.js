@@ -1,133 +1,96 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-let badgeURL = ""
 const fs = require('fs');
 
+
+
+// LINK to file where the readme is located
+const generateMarkdown = require('./utils/generateMarkdown');
+
+function writeToFile(fileName, response) {
+    import { generateMarkdown(response) } from "./utils/generateMarkdown.js" ;
+    const markup = 
+  
+      fs.writeFile(fileName, markup, (err) =>
+        err ? console.log(err) : console.log(`${fileName} successfully created!`)
+      );
+
+    }
 // TODO: Create an array of questions for user input
+function init(){
 inquirer 
-    .prompt([
-        {
-            type: "input",
-            message: "What is the title of your project?",
-            name: "title",
-        }, {
-            type: "input",
-            message: "Give a discription of your project.",
-            name: "description",
-        }, {
-            type: "input",
-            message: "How do you install the project?",
-            name: "installation",
-        }, {
-            type: "input",
-            message: "How do you use your project?",
-            name: "usage",
-        }, {
-            type: "list",
-            message: "Which license would you like to use?",
-            choices: ["MIT", "BSD", "GPL", "None"],
-            name: "license",
-        }, {
-            type: "input",
-            message: "Would you like others to contribute to this project?",
-            name: "contributing",
-        }, {
-            type: "input",
-            message: "Are there any test instructions?",
-            name: "test",
-        }, {
-            type: "input",
-            message: "What is your GitHub?",
-            name: "GitHub"
-        },{
-            type: "input",
-            message: "What is your email?",
-            name: "email"
-        }, 
-    ])
-
+.prompt([
+    {
+        // Project Title
+        type: "input",
+        message: "What is the title of your project?",
+        name: "title",
+    }, {
+        // Project Description
+        type: "input",
+        message: "Give a discription of your project.",
+        name: "description",
+    }, {
+        // Project installation description
+        type: "input",
+        message: "How do you install the project?",
+        name: "installation",
+    }, {
+        // Project usage description
+        type: "input",
+        message: "How do you use your project?",
+        name: "usage",
+    }, {
+        // License information
+        type: "list",
+        message: "Which license would you like to use?",
+        choices: ["MIT", "BSD", "GPL", "None"],
+        name: "license",
+    }, {
+        // Contibutions
+        type: "input",
+        message: "How can others contribute to your project?",
+        name: "contributing",
+    }, {
+        // Test information
+        type: "input",
+        message: "Are there any tests included?",
+        name: "test",
+    }, {
+        // Github username
+        type: "input",
+        message: "What is your GitHub?",
+        name: "GitHub"
+    },{
+        // Email Address
+        type: "input",
+        message: "What is your email?",
+        name: "email"
+    },{
+        // Year input for licensing creation
+        type: "input",
+        message: "What year is it?",
+        name: "year"
+    } 
+])
 // TODO: Create a function to write README file
-.then(response => {
-    const ReadMe = 
-`# ${response.title}
+.then((response) =>  {
+    const fileName = `${response.title.toLowerCase().split(' ').join('')}.md`
+   writeToFile(fileName, response)
 
-${badgeURL}
+ })
+}
     
-## Description
-    ${response.description}
-    
-    
-* [Installation](/README.md#installation)
-
-* [Usage](/README.md#usage),
-
-* [Contributing](/README.md#contributing)
-
-* [Tests](/README.md#tests)
-
-* [Questions](/README.md#questions)
-
-* [License](/README.md#license)
-   
-## Installation
-${response.installation}
-    
-    
-   
-## Usage
-${response.usage}
-    
-    
-## Contributing
-${response.contributing}
-    
-## Tests
-${response.tests}    
-    
-## Questions
-    
-Do you have any questions about this project? If so, please reach out to me at either my email address or contact me at my GitHub.
-    
-#### Email Address
-[${response.email}](${response.email})
-    
-#### GitHub URL
-[${response.GitHub}](${response.GitHub})
-
-## License
-© 2022 ${response.license} 
+init()
 
 
 
-`
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge() {
-    if(response.license === "MIT") {
-        badgeURL = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
-    } else if(response.license === "BSD") {
-        badgeURL = "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)"
-    } else if (response.license === "GPL") {
-        badgeURL = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
-    } else if (response.license === "None") {
-        badgeURL = ""
-    }
-
-    }
-
-    renderLicenseBadge()
 
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {} 
-fs.writeFile("Dynamic-readme.md", ReadMe, (err) => err ? console.log(err) : console.log("success"))
 
-})
+
+
 
 
 
