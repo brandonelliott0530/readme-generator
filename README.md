@@ -39,6 +39,6 @@ My biggest struggle with this project, was creating the readme from a different 
 ![Screenshot](./assets/screenshot.png)
 
 ## Demonstration Video:
-![VideoLink](https://drive.google.com/file/d/1xKFuce-toap9w77wZXOC1WACpScAdiwj/view)
+
 
 
