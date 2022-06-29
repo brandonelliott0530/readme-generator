@@ -78,17 +78,17 @@ function generateMarkdown(response) {
   ${response.description}
   
   
-  * [Installation](/README.md#installation)
+  * [Installation](./${response.title}.md#installation)
   
-  * [Usage](/README.md#usage),
+  * [Usage](./${response.title}.md#usage),
   
-  * [Contributing](/README.md#contributing)
+  * [Contributing](./${response.title}.md#contributing)
   
-  * [Tests](/README.md#tests)
+  * [Tests](./${response.title}.md#tests)
   
-  * [Questions](/README.md#questions)
+  * [Questions](./${response.title}.md#questions)
   
-  * [License](/README.md#license)
+  * [License](./${response.title}.md#license)
   
   ## Installation
   ${response.installation}

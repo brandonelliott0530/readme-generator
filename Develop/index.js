@@ -9,15 +9,7 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 
-// function writeToFile(fileName, response) {
-//      generateMarkdown(response) 
-//     const markup = 
-  
-//       fs.writeFile(fileName, markup, (err) =>
-//         err ? console.log(err) : console.log(`${fileName} successfully created!`)
-//       );
 
-//     }
 // TODO: Create an array of questions for user input
 function userPrompt(){
 inquirer 
