@@ -1,23 +1,10 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-let licenseBadge = ""
-function renderLicenseBadge(license) {
-  if(license === "MIT") {
-    licenseBadge = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]`
-  } else if (license === "GPL") {
-     licenseBadge = `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]`
-  } else if (license === "BSD") {
-     licenseBadge = `[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)]`
-  }else {
-     licenseBadge = ""
-  }
-}
-renderLicenseBadge()
+
+
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-let licenseLink = ""
 function renderLicenseLink(license) {
+  
   if (license === "MIT") {
     licenseLink = `[![License: MIT](https://opensource.org/licenses/MIT)`
   } else if (license === "GPL") {
@@ -32,11 +19,12 @@ renderLicenseLink()
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-licenseSection = ""
+
 function renderLicenseSection(license) {
+  
   if (license === "MIT") {
     licenseSection = `Copyright ${response.year} ${response.GitHub}
-
+    
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
     
     The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -44,22 +32,22 @@ function renderLicenseSection(license) {
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`
   } else if (license === "GPL") {
     licenseSection = ` Copyright (C) ${response.year}  ${response.GitHub}
-
+    
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
-
+    
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-
+    
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.`
   } else if (license === "BSD") {
     licenseSection = `Copyright <YEAR> <COPYRIGHT HOLDER>
-
+    
     Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
     
     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
@@ -78,10 +66,11 @@ renderLicenseSection()
 
 
 // TODO: Create a function to generate markdown for README
-export function generateMarkdown(response) {
+function generateMarkdown(response) {
   
-  `# ${response.title}
-  ${licenseBadge}
+  return `
+  # ${response.title}
+  ![License: MIT](https://img.shields.io/badge/License-${response.license}-yellow.svg)
   
   
   
@@ -95,41 +84,41 @@ export function generateMarkdown(response) {
   
   * [Contributing](/README.md#contributing)
   
-* [Tests](/README.md#tests)
-
-* [Questions](/README.md#questions)
-
-* [License](/README.md#license)
-
-## Installation
-${response.installation}
-
-
-
-## Usage
-${response.usage}
-
-
-## Contributing
-${response.contributing}
-
-## Tests
-${response.tests}    
-
-## Questions
-
-Do you have any questions about this project? If so, please reach out to me at either my email address or contact me at my GitHub.
-
-#### Email Address
-[${response.email}](${response.email})
-
-#### GitHub URL
-[${response.GitHub}](${response.GitHub})
-
-## License
-${licenseSection}
-${licenseLink}
-`;
+  * [Tests](/README.md#tests)
+  
+  * [Questions](/README.md#questions)
+  
+  * [License](/README.md#license)
+  
+  ## Installation
+  ${response.installation}
+  
+  
+  
+  ## Usage
+  ${response.usage}
+  
+  
+  ## Contributing
+  ${response.contributing}
+  
+  ## Tests
+  ${response.tests}    
+  
+  ## Questions
+  
+  Do you have any questions about this project? If so, please reach out to me at either my email address or contact me at my GitHub.
+  
+  #### Email Address
+  [${response.email}](${response.email})
+  
+  #### GitHub URL
+  [${response.GitHub}](${response.GitHub})
+  
+  ## License 
+  Copyright (C) ${response.year} 
+  This project uses the ${response.license} license.` 
+  
 }
 
 

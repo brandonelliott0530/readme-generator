@@ -4,20 +4,22 @@ const fs = require('fs');
 
 
 
+
 // LINK to file where the readme is located
 const generateMarkdown = require('./utils/generateMarkdown');
 
-function writeToFile(fileName, response) {
-    import { generateMarkdown(response) } from "./utils/generateMarkdown.js" ;
-    const markup = 
-  
-      fs.writeFile(fileName, markup, (err) =>
-        err ? console.log(err) : console.log(`${fileName} successfully created!`)
-      );
 
-    }
+// function writeToFile(fileName, response) {
+//      generateMarkdown(response) 
+//     const markup = 
+  
+//       fs.writeFile(fileName, markup, (err) =>
+//         err ? console.log(err) : console.log(`${fileName} successfully created!`)
+//       );
+
+//     }
 // TODO: Create an array of questions for user input
-function init(){
+function userPrompt(){
 inquirer 
 .prompt([
     {
@@ -73,15 +75,18 @@ inquirer
         name: "year"
     } 
 ])
-// TODO: Create a function to write README file
-.then((response) =>  {
-    const fileName = `${response.title.toLowerCase().split(' ').join('')}.md`
-   writeToFile(fileName, response)
 
+
+.then((response) =>  {
+    let content= generateMarkdown(response)
+    const fileName = `${response.title.toLowerCase().split(' ').join('')}.md`
+  fs.writeFile(fileName, content, (err) =>
+  err ? console.log(err) : console.log("File created successfully!")
+  )
  })
 }
     
-init()
+userPrompt()
 
 
 
