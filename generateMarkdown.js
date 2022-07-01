@@ -1,10 +1,10 @@
 
 
-
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   
+  let licenseLink =""
   if (license === "MIT") {
     licenseLink = `[![License: MIT](https://opensource.org/licenses/MIT)`
   } else if (license === "GPL") {
@@ -15,7 +15,6 @@ function renderLicenseLink(license) {
     licenseLink = ""
   }
 }
-renderLicenseLink()
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -61,8 +60,8 @@ function renderLicenseSection(license) {
   } else {
     licenseSection = `No licensing information available for this project.`
   }
+  
 }
-renderLicenseSection()
 
 
 // TODO: Create a function to generate markdown for README
@@ -78,17 +77,17 @@ function generateMarkdown(response) {
   ${response.description}
   
   
-  * [Installation](./${response.title}.md#installation)
+  * [Installation](${response.title}.md#installation)
   
-  * [Usage](./${response.title}.md#usage),
+  * [Usage](${response.title}.md#usage),
   
-  * [Contributing](./${response.title}.md#contributing)
+  * [Contributing](${response.title}.md#contributing)
   
-  * [Tests](./${response.title}.md#tests)
+  * [Tests](${response.title}.md#tests)
   
-  * [Questions](./${response.title}.md#questions)
+  * [Questions](${response.title}.md#questions)
   
-  * [License](./${response.title}.md#license)
+  * [License](${response.title}.md#license)
   
   ## Installation
   ${response.installation}
@@ -103,21 +102,21 @@ function generateMarkdown(response) {
   ${response.contributing}
   
   ## Tests
-  ${response.tests}    
+  ${response.test}    
   
   ## Questions
   
   Do you have any questions about this project? If so, please reach out to me at either my email address or contact me at my GitHub.
   
   #### Email Address
-  [${response.email}](${response.email})
+  [${response.email}](<${response.email}>)
   
   #### GitHub URL
-  [${response.GitHub}](${response.GitHub})
+  [${response.GitHub}](<${response.GitHub}>)
   
-  ## License 
-  Copyright (C) ${response.year} 
-  This project uses the ${response.license} license.` 
+  ## License Copyright (C) ${response.year} This project is licensed using the ${response.license} license.
+
+  ` 
   
 }
 
@@ -127,4 +126,5 @@ function generateMarkdown(response) {
 
 
 module.exports = generateMarkdown;
+
 

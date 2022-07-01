@@ -39,10 +39,10 @@ My biggest struggle with this project, was creating the readme from a different 
 ![Screenshot](./assets/screenshot.png)
 
 ## Demonstration Video:
-![Hosted Video Link](https://drive.google.com/file/d/1xKFuce-toap9w77wZXOC1WACpScAdiwj/view)
+[Link to demonstation video](<https://drive.google.com/file/d/1xKFuce-toap9w77wZXOC1WACpScAdiwj/view>)
 
 ## GitHub Link
-https://github.com/brandonelliott0530/readme-generator
+[GitHub Repo](<https://github.com/brandonelliott0530/readme-generator>)
 
 ## Contact Me
 Email: brandonelliott0594@gmail.com

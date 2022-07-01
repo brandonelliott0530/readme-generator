@@ -6,7 +6,7 @@ const fs = require('fs');
 
 
 // LINK to file where the readme is located
-const generateMarkdown = require('./utils/generateMarkdown');
+const generateMarkdown = require('./generateMarkdown');
 
 
 
@@ -53,7 +53,7 @@ inquirer
     }, {
         // Github username
         type: "input",
-        message: "What is your GitHub?",
+        message: "What is your GitHub URL?",
         name: "GitHub"
     },{
         // Email Address
@@ -71,6 +71,7 @@ inquirer
 
 .then((response) =>  {
     let content= generateMarkdown(response)
+
     const fileName = `${response.title.toLowerCase().split(' ').join('')}.md`
   fs.writeFile(fileName, content, (err) =>
   err ? console.log(err) : console.log("File created successfully!")
